@@ -1036,7 +1036,7 @@ void BT40Device::setGradient(double g)
         const auto Msg = ANTMessage::fecSetTrackResistance(5, gradient, 0);
         loadService->writeCharacteristic(loadCharacteristic,
                 QByteArray{(const char*) &Msg.data[0], Msg.length},
-                QLowEnergyService::WriteWithoutResponse);
+                QLowEnergyService::WriteWithResponse);
 
     // Changing gradient is long on some devices, filter duplicates
     } else if(loadType == Wahoo_Kickr && gradient != prevGradient) {
@@ -1232,7 +1232,7 @@ BT40Device::setLoadErg(double l)  // Load in Watts
         const auto Msg = ANTMessage::fecSetTargetPower(5, (int)load);
         loadService->writeCharacteristic(loadCharacteristic,
                 QByteArray{(const char*) &Msg.data[0], Msg.length},
-                QLowEnergyService::WriteWithoutResponse);
+                QLowEnergyService::WriteWithResponse);
 
     } else if(loadType == Wahoo_Kickr) {
         QByteArray command;
