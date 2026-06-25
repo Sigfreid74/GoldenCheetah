@@ -94,6 +94,7 @@ cache:
 - D2XX
 - src\Python\SIP\release\sip_lib.lib -> src\Python\SIP\goldencheetah.sip
 - src\Python\SIP\libsip_lib.a -> src\Python\SIP\goldencheetah.sip
+- release -> src/**/*.cpp, src/**/*.h
 
 install:
 
